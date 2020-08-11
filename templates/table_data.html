@@ -1,0 +1,46 @@
+
+<!-- ASí se comenta en html, por lo que se ve -->
+<!-- En el head he metido el link para el archivo css que está en static. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Duraciones de películas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+ <!-- Con h2 creamos una primera línea donde pasamoe sl nombre como variable name -->
+ <h2> Esta colección pertenece a {{name}}</h2>
+         <!--Esto es solo para que aparezca el path en pantalla, nada más.-->
+ <h3> Path to the css file: {{ url_for('static', filename='css/styles.css') }} </h3>
+
+ <!-- Ahora una tabla en html. Va entre los tags table y parece que para las filas se pone tr y para las cols th
+  para negrita o td: -->
+<table>
+    <tr>
+        <th> pelicula </th>
+        <th> duracion </th>
+        <th> comentario </th>
+
+     </tr>
+
+            {% for movie, length in movies.items() %}
+                <tr>
+                    <td> {{ movie }} </td>
+                    <td> {{ length }} </td>
+                    {% if length <2 %}
+                        <td> corta </td>
+                    {% elif length >=2  and length <3 %}
+                        <td> media </td>
+                    {% else %}
+                       <td style="color: red"> corta </td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+
+</table>
+
+</body>
+</html>

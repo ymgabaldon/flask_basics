@@ -1,0 +1,27 @@
+<!-- SECTION 3: LECTURE 16
+ Aquí se ve cómo importar una macro definida en otro archivo y después ejecutarla
+
+ -->
+
+
+{% import 'macros.html' as my_macros %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>dictionary data displayed</title>
+    </head>
+
+    <h2>working with macros</h2>
+
+    <body>
+<!-- SECTION 3: LECTURE 16
+ Aquí se ve cómo importar una macro definida en otro archivo y después ejecutarla
+ se llama igual que se invoca un metodo en una clase
+
+ -->
+
+        {{ my_macros.render_dict(movies) }} <br>
+
+    </body>
+</html>
